@@ -4,6 +4,23 @@ All notable changes to HermesGate will be documented here.
 
 The format follows Keep a Changelog, and the project uses Semantic Versioning.
 
+## [Unreleased]
+
+### Fixed
+
+- A CodeRabbit run that reports `No fresh detailed file review was performed` (a reused
+  prior result) is now `REVIEW_UNAVAILABLE`, not a clean `PASS`. A reused result that still
+  carries material findings keeps failing.
+- Stored review PASS receipts whose captured CodeRabbit stdout says `No fresh detailed file
+  review was performed` are no longer honored by `review`, `boundary push`, or PR boundaries.
+  Detailed reviews and other providers are unaffected.
+
+### Added
+
+- `hermes-gate review --fresh` asks the CodeRabbit provider for a new detailed review
+  (appends `--fresh` to its command) and does not reuse a stored review receipt. With any
+  other review provider it stops with an error instead of silently ignoring the flag.
+
 ## [0.1.7] - 2026-09-18
 
 ### Added
