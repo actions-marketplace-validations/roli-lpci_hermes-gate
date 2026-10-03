@@ -13,7 +13,7 @@ jobs:
   full:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
         with:
           # The gate compares the pull request base with HEAD, so the base commit
           # has to be in the checkout.
